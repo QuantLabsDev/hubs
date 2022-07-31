@@ -16,7 +16,7 @@
 :local(.content) {
   display: flex;
   flex: 1;
-  justify-content: space-around;
+  justify-content: flex-end;
 
   @media (min-width: theme.$breakpoint-lg) {
     flex: 0;
@@ -30,3 +30,4 @@
     }
   }
 }
+

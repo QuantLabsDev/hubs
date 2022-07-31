@@ -14,7 +14,13 @@ export function Modal({
   disableFullscreen
 }) {
   return (
-    <div className={classNames(styles.modal, { [styles.smFullscreen]: !disableFullscreen }, className)}>
+    <div
+      className={classNames(styles.modal, { [styles.smFullscreen]: !disableFullscreen }, className)}
+      style={{
+        backgroundImage: `url("https://sonarkelaone-assets-6c7d3550.s3.amazonaws.com/assets/versez-comp.webp")`,
+        border: "5px solid  #2F4F4F"
+      }}
+    >
       {(title || beforeTitle || afterTitle) && (
         <div className={styles.header}>
           <div className={styles.beforeTitle}>{beforeTitle}</div>

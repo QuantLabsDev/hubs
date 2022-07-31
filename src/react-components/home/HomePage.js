@@ -54,9 +54,14 @@ export function HomePage() {
   const canCreateRooms = !configs.feature("disable_room_creation") || auth.isAdmin;
   const email = auth.email;
   return (
-    <PageContainer className={styles.homePage}>
+    <PageContainer
+      className={styles.homePage}
+      style={{
+        backgroundImage: `url("https://sonarkelaone-assets-6c7d3550.s3.amazonaws.com/assets/versez-comp.webp")`
+      }}
+    >
       <Container>
-        <div className={styles.hero}>
+        <div className={styles.hero + " homepage-container-alignment"}>
           {auth.isSignedIn ? (
             <div className={styles.signInContainer}>
               <span>
@@ -73,14 +78,18 @@ export function HomePage() {
           ) : (
             <SignInButton mobile />
           )}
-          <div className={styles.logoContainer}>
-            <AppLogo />
+          <div className={styles.logoContainer + " custom-image-container-dimensions"}>
+            <AppLogo className="custom-image-dimensions" />
           </div>
+
           <div className={styles.appInfo}>
+            <div>Hello Microverses</div>
+
             <div className={styles.appDescription}>{configs.translation("app-description")}</div>
             {canCreateRooms && <CreateRoomButton />}
             <PWAButton />
           </div>
+
           <div className={styles.heroImageContainer}>
             <img
               alt={intl.formatMessage(
@@ -91,6 +100,7 @@ export function HomePage() {
                 { appName: configs.translation("app-name") }
               )}
               src={configs.image("home_background")}
+              className="homepage-background-size"
             />
           </div>
         </div>
@@ -180,13 +190,13 @@ export function HomePage() {
           </Column>
         </Container>
       )}
-      <Container>
+      {/*<Container>
         <Column center grow>
           <Button thin preset="landing" as="a" href="/link">
             <FormattedMessage id="home-page.have-code" defaultMessage="Have a room code?" />
           </Button>
         </Column>
-      </Container>
+      </Container>*/}
       {isHmc() ? (
         <Column center>
           <SocialBar />
